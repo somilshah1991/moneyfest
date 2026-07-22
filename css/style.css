@@ -301,6 +301,8 @@ body {
 .mobile-nav-overlay.active {
     opacity: 1;
     pointer-events: auto;
+    position: absolute;
+    height: 100vh;
 }
 
 .logo-wrapper {
@@ -966,19 +968,24 @@ body {
 
 @media (max-width: 768px) {
     .site-header {
+        position: fixed;
         padding: 0;
     }
 
     .header-container {
         flex-wrap: wrap;
         align-items: center;
-        position: sticky;
-        top: 0;
-        z-index: 1300;
+        position: relative;
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(8px);
         padding-top: 12px;
         padding-bottom: 12px;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s ease;
+    }
+
+    .site-header.is-scrolled .header-container {
+        border-bottom-color: rgba(6, 27, 77, 0.09);
     }
 
     .menu-toggle {
