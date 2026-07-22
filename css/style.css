@@ -298,7 +298,6 @@ body {
     transition: var(--transition-smooth);
 }
 
-
 .mobile-nav-overlay.active {
     opacity: 1;
     pointer-events: auto;
