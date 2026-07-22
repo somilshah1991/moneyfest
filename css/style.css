@@ -766,11 +766,7 @@ body {
 }
 
 /* ==========================================================================NEW CONTENT SYSTEMS========================================================================== */
-.site-header .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-}
+
 
 .site-header .nav-links a {
     color: var(--primary);
