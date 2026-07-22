@@ -405,33 +405,12 @@ body {
 }
 
 /* ==========================================================================
-   SECTION 3: STRATEGIC SERVICES GRID (Balanced 5-Card Layout)
+   SECTION 3: STRATEGIC SERVICES GRID
    ========================================================================== */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 30px;
-}
-
-/* Grid structural column span allocation to perfectly center 5 premium items across a 6-unit width grid system */
-.services-grid .service-card:nth-child(1) {
-    grid-column: span 2;
-}
-
-.services-grid .service-card:nth-child(2) {
-    grid-column: span 2;
-}
-
-.services-grid .service-card:nth-child(3) {
-    grid-column: span 2;
-}
-
-.services-grid .service-card:nth-child(4) {
-    grid-column: 2 / span 2;
-}
-
-.services-grid .service-card:nth-child(5) {
-    grid-column: 4 / span 2;
 }
 
 .service-card {
@@ -716,6 +695,184 @@ body {
     letter-spacing: 0.5px;
 }
 
+/* ==========================================================================NEW CONTENT SYSTEMS========================================================================== */
+.site-header .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.site-header .nav-links a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.site-header .nav-links a:hover {
+    color: var(--gold);
+}
+
+.why-section {
+    background: linear-gradient(180deg, rgba(6, 27, 77, 0.02) 0%, rgba(199, 154, 43, 0.03) 100%);
+}
+
+.why-grid,
+.contact-grid,
+.modern-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: start;
+}
+
+.experience-section .section-container,
+.contact-section .section-container {
+    padding-top: 96px;
+    padding-bottom: 96px;
+}
+
+.experience-section .section-heading,
+.contact-section .section-heading {
+    margin-bottom: 20px;
+}
+
+.experience-section .paragraph-body,
+.contact-section .paragraph-body {
+    margin-bottom: 28px;
+}
+
+.experience-section .btn-primary {
+    margin-top: 8px;
+}
+
+.contact-section .contact-list {
+    margin-top: 28px;
+    display: grid;
+    gap: 10px;
+}
+
+.why-list,
+.bullet-list {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.why-list li,
+.bullet-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.info-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: var(--shadow-premium);
+}
+
+.info-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin-bottom: 14px;
+}
+
+.info-card p,
+.info-card li {
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.highlight-card {
+    background: linear-gradient(135deg, rgba(6, 27, 77, 0.95) 0%, rgba(2, 12, 27, 0.98) 100%);
+    color: #fff;
+}
+
+.highlight-card h3,
+.highlight-card p,
+.highlight-card .stat-pill {
+    color: #fff;
+}
+
+.stat-pill {
+    display: inline-block;
+    margin: 10px 10px 0 0;
+    padding: 8px 14px;
+    background: rgba(199, 154, 43, 0.2);
+    border: 1px solid rgba(199, 154, 43, 0.3);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.contact-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: var(--shadow-premium);
+}
+
+.contact-item-block {
+    margin-top: 18px;
+}
+
+.contact-item-block .label {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+}
+
+.contact-item-block p,
+.contact-item-block a {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+.contact-item-block a:hover {
+    color: var(--primary);
+}
+
+.map-placeholder {
+    min-height: 340px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(6, 27, 77, 0.08) 0%, rgba(199, 154, 43, 0.14) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+}
+
+.map-placeholder strong {
+    display: block;
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.map-placeholder p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
 /* ==========================================================================MEDIA QUERY RESPONSIVENESS MATRIX========================================================================== */
 @media (max-width: 1024px) {
     .section-container {
@@ -726,16 +883,18 @@ body {
         font-size: clamp(3rem, 6vw, 3.8rem);
     }
 
-    .services-grid .service-card {
-        grid-column: span 3 !important;
+    .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .services-grid .service-card:nth-child(4) {
-        grid-column: span 3 !important;
+    .why-grid,
+    .contact-grid,
+    .modern-grid {
+        grid-template-columns: 1fr;
     }
 
-    .services-grid .service-card:nth-child(5) {
-        grid-column: span 3 !important;
+    .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
@@ -777,13 +936,23 @@ body {
         margin-left: 0;
     }
 
-    .services-grid .service-card {
-        grid-column: span 6 !important;
+    .site-header .nav-links {
+        display: none;
     }
 
-    .services-grid .service-card:nth-child(4),
-    .services-grid .service-card:nth-child(5) {
-        grid-column: span 6 !important;
+    .services-grid,
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-section .section-container,
+    .contact-section .section-container {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .contact-card {
+        padding: 32px 24px;
     }
 
     .timeline-line {
@@ -858,7 +1027,9 @@ body {
         font-size: 1rem;
     }
 
-    .service-card {
+    .service-card,
+    .info-card,
+    .contact-card {
         padding: 36px 24px;
     }
 }
