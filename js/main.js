@@ -6,7 +6,87 @@
 document.addEventListener('DOMContentLoaded', () => {
     initAmbientEngine();
     initScrollAnimations();
+    initMobileNavigation();
 });
+
+function toggleMobileNav() {
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    const overlay = document.querySelector('.mobile-nav-overlay');
+
+    if (!toggle || !nav || !overlay) return;
+
+    const isOpen = nav.classList.contains('open');
+    if (isOpen) {
+        nav.classList.remove('open');
+        overlay.classList.remove('active');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    } else {
+        nav.classList.add('open');
+        overlay.classList.add('active');
+        toggle.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeMobileNav() {
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    const overlay = document.querySelector('.mobile-nav-overlay');
+
+    if (!toggle || !nav || !overlay) return;
+
+    nav.classList.remove('open');
+    overlay.classList.remove('active');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+}
+
+function initMobileNavigation() {
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    const overlay = document.querySelector('.mobile-nav-overlay');
+
+    if (!toggle || !nav || !overlay) return;
+
+    toggle.addEventListener('click', function (event) {
+        event.preventDefault();
+        toggleMobileNav();
+    });
+
+    const closeButton = nav.querySelector('.nav-close');
+    if (closeButton) {
+        closeButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            closeMobileNav();
+        });
+    }
+
+    overlay.addEventListener('click', function (event) {
+        event.preventDefault();
+        closeMobileNav();
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            closeMobileNav();
+        });
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            closeMobileNav();
+        }
+    });
+}
+
+window.toggleMobileNav = toggleMobileNav;
+window.closeMobileNav = closeMobileNav;
 
 /**
  * Renders an optimized financial grid overlay, mathematical network connections,
