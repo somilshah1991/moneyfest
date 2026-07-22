@@ -359,10 +359,49 @@ body {
     position: relative;
     padding: 140px 24px 80px;
     text-align: center;
+    overflow: hidden;
+}
+
+/* Clean & Visible Animated Hero Background */
+.hero-bg-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.98) contrast(1.05);
+    animation: heroSubtleScale 20s infinite ease-in-out alternate;
+    will-change: transform;
+}
+
+@keyframes heroSubtleScale {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(248, 249, 252, 0.84) 60%, rgba(248, 249, 252, 0.95) 100%);
 }
 
 .hero-container {
     max-width: 950px;
+    position: relative;
+    z-index: 2;
 }
 
 .hero-section .badge {
@@ -371,22 +410,22 @@ body {
 
 .hero-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 4.8rem;
-    font-weight: 400;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 600;
     color: var(--primary);
-    line-height: 1.1;
+    line-height: 1.15;
     margin-bottom: 24px;
     letter-spacing: -0.5px;
 }
 
 .hero-subtitle {
     font-family: 'Inter', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 300;
+    font-size: 1.25rem;
+    font-weight: 400;
     color: var(--text-muted);
     max-width: 750px;
     margin: 0 auto 48px;
-    line-height: 1.65;
+    line-height: 1.7;
 }
 
 /* Scroll indicator architecture */
