@@ -745,6 +745,10 @@ body {
     transition: var(--transition-smooth);
 }
 
+.footer-phone {
+    white-space: nowrap;
+}
+
 .contact-item a.value:hover {
     color: var(--gold);
 }
@@ -1008,10 +1012,6 @@ body {
     .nav-links.open {
         display: flex !important;
         right: 0;
-    }
-
-    .site-header .nav-links {
-        display: flex !important;
     }
 
     .nav-links a {
