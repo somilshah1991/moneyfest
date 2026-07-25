@@ -4,11 +4,39 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    initInitialLoader();
     initAmbientEngine();
     initScrollAnimations();
     initMobileNavigation();
     initMobileHeaderScrollState();
 });
+
+function initInitialLoader() {
+    const loader = document.getElementById('initial-loader');
+    const fill = document.getElementById('loader-progress-fill');
+    if (!loader) return;
+
+    let progress = 0;
+    const progressInterval = setInterval(() => {
+        progress += Math.floor(Math.random() * 14) + 10;
+        if (progress >= 100) {
+            progress = 100;
+            if (fill) fill.style.width = '100%';
+            clearInterval(progressInterval);
+            
+            setTimeout(() => {
+                loader.classList.add('loaded');
+            }, 350);
+        } else {
+            if (fill) fill.style.width = progress + '%';
+        }
+    }, 70);
+
+    window.addEventListener('load', () => {
+        progress = 100;
+        if (fill) fill.style.width = '100%';
+    });
+}
 
 function initMobileHeaderScrollState() {
     const header = document.querySelector('.site-header');
