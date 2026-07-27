@@ -680,17 +680,9 @@ body {
     pointer-events: none;
 }
 
-.about-heading {
-    position: relative;
-    margin-bottom: 54px;
-}
-
-.about-heading .section-heading {
-    margin-top: 12px;
-}
-
-.about-heading .section-heading em {
+.section-heading em {
     color: var(--gold);
+    font-style: normal;
     font-weight: 600;
 }
 
