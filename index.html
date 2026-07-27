@@ -185,8 +185,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- Stylesheets Linkage -->
-    <link rel="stylesheet" href="css/style.css?v=20260725">
-    <link rel="stylesheet" href="css/animation.css?v=20260725">
+    <link rel="stylesheet" href="css/style.css?v=20260726">
+    <link rel="stylesheet" href="css/animation.css?v=20260726">
+    <!-- High-Priority Critical Asset Preloads -->
+    <link rel="preload" href="assets/logo.webp" as="image" type="image/webp">
+    <link rel="preload" href="assets/hero-bg-simple.webp" as="image" type="image/webp">
 </head>
 <body>
 
@@ -194,7 +197,7 @@
     <div id="initial-loader" class="initial-loader" aria-label="Loading Moneyfest Capital Advisors">
         <div class="loader-centroid-content">
             <div class="loader-logo-frame">
-                <img src="assets/logo.png" alt="Moneyfest Capital Advisors" class="loader-logo-img">
+                <img src="assets/logo.webp" alt="Moneyfest Capital Advisors" class="loader-logo-img" width="100" height="100" fetchpriority="high" decoding="async">
                 <div class="loader-aura-ring"></div>
             </div>
             <div class="loader-typography">
@@ -215,7 +218,7 @@
         <div class="header-container">
             <div class="logo-wrapper">
                 <a href="#home" class="nav-branding-container" aria-label="Moneyfest Home">
-                    <img src="assets/logo.png" alt="Moneyfest Tree Emblem" class="nav-tree-graphic">
+                    <img src="assets/logo.webp" alt="Moneyfest Tree Emblem" class="nav-tree-graphic" width="60" height="60" fetchpriority="high" decoding="async">
                     <div class="nav-typography-block">
                         <span class="nav-brand-main">MONEYFEST</span>
                         <span class="nav-brand-sub">CAPITAL ADVISORS</span>
@@ -242,7 +245,7 @@
     <main>
         <section class="hero-section" id="home">
             <div class="hero-bg-wrapper" aria-hidden="true">
-                <img src="assets/hero-bg-simple.jpg" alt="Moneyfest Corporate Advisory Background" class="hero-bg-img">
+                <img src="assets/hero-bg-simple.webp" alt="Moneyfest Corporate Advisory Background" class="hero-bg-img" fetchpriority="high" decoding="async">
                 <div class="hero-bg-overlay"></div>
             </div>
             <div class="hero-container">
@@ -255,7 +258,7 @@
                         <a href="./assets/brochure/Moneyfest_Corporate_Profile.pdf" class="btn btn-secondary" download="Moneyfest_Capital_Profile" target="_blank">Download Profile</a>
                     </div>
                 </div>
-                <div class="hero-emblem fade-in-delay-2" aria-hidden="true"><img src="assets/hero-sider-image.png" alt=""></div>
+                <div class="hero-emblem fade-in-delay-2" aria-hidden="true"><img src="assets/hero-sider-image.webp" alt="Moneyfest Capital Advisory Emblem" width="340" height="340" fetchpriority="high" decoding="async"></div>
             </div>
             <div class="scroll-indicator">
                 <span class="mouse-wheel"></span>
@@ -422,7 +425,7 @@
                     <!-- Sector 01 -->
                     <div class="sector-card reveal-item">
                         <div class="sector-img-wrapper">
-                            <img src="assets/sector-ai.jpg?v=20260727" alt="Artificial Intelligence (AI) & Deep Tech" class="sector-img" loading="lazy">
+                            <img src="assets/sector-ai.webp?v=20260727" alt="Artificial Intelligence (AI) & Deep Tech" class="sector-img" width="300" height="180" loading="lazy" decoding="async">
                             <div class="sector-img-overlay"></div>
                         </div>
                         <div class="sector-content">
@@ -434,7 +437,7 @@
                     <!-- Sector 02 -->
                     <div class="sector-card reveal-item">
                         <div class="sector-img-wrapper">
-                            <img src="assets/sector-saas.jpg?v=20260727" alt="Information Technology & SaaS" class="sector-img" loading="lazy">
+                            <img src="assets/sector-saas.webp?v=20260727" alt="Information Technology & SaaS" class="sector-img" width="300" height="180" loading="lazy" decoding="async">
                             <div class="sector-img-overlay"></div>
                         </div>
                         <div class="sector-content">
@@ -446,7 +449,7 @@
                     <!-- Sector 03 -->
                     <div class="sector-card reveal-item">
                         <div class="sector-img-wrapper">
-                            <img src="assets/sector-robotics.jpg?v=20260727" alt="Robotics & Industrial Automation" class="sector-img" loading="lazy">
+                            <img src="assets/sector-robotics.webp?v=20260727" alt="Robotics & Industrial Automation" class="sector-img" width="300" height="180" loading="lazy" decoding="async">
                             <div class="sector-img-overlay"></div>
                         </div>
                         <div class="sector-content">
@@ -458,7 +461,7 @@
                     <!-- Sector 04 -->
                     <div class="sector-card reveal-item">
                         <div class="sector-img-wrapper">
-                            <img src="assets/sector-defence.jpg?v=20260727" alt="Defence & Aerospace" class="sector-img" loading="lazy">
+                            <img src="assets/sector-defence.webp?v=20260727" alt="Defence & Aerospace" class="sector-img" width="300" height="180" loading="lazy" decoding="async">
                             <div class="sector-img-overlay"></div>
                         </div>
                         <div class="sector-content">
@@ -470,7 +473,7 @@
                     <!-- Sector 05 -->
                     <div class="sector-card reveal-item">
                         <div class="sector-img-wrapper">
-                            <img src="assets/sector-manufacturing.jpg?v=20260727" alt="Engineering & Industrial Manufacturing" class="sector-img" loading="lazy">
+                            <img src="assets/sector-manufacturing.webp?v=20260727" alt="Engineering & Industrial Manufacturing" class="sector-img" width="300" height="180" loading="lazy" decoding="async">
                             <div class="sector-img-overlay"></div>
                         </div>
                         <div class="sector-content">
@@ -482,7 +485,7 @@
                     <!-- Sector 06 -->
                     <div class="sector-card reveal-item">
                         <div class="sector-img-wrapper">
-                            <img src="assets/sector-ev.jpg?v=20260727_2" alt="Electric Mobility & EV Ecosystem" class="sector-img" loading="lazy">
+                            <img src="assets/sector-ev.webp?v=20260727_2" alt="Electric Mobility & EV Ecosystem" class="sector-img" width="300" height="180" loading="lazy" decoding="async">
                             <div class="sector-img-overlay"></div>
                         </div>
                         <div class="sector-content">
@@ -494,7 +497,7 @@
                     <!-- Sector 07 -->
                     <div class="sector-card reveal-item">
                         <div class="sector-img-wrapper">
-                            <img src="assets/sector-cleanenergy.jpg?v=20260727" alt="Clean Energy & Energy Transition" class="sector-img" loading="lazy">
+                            <img src="assets/sector-cleanenergy.webp?v=20260727" alt="Clean Energy & Energy Transition" class="sector-img" width="300" height="180" loading="lazy" decoding="async">
                             <div class="sector-img-overlay"></div>
                         </div>
                         <div class="sector-content">
@@ -506,7 +509,7 @@
                     <!-- Sector 08 -->
                     <div class="sector-card reveal-item">
                         <div class="sector-img-wrapper">
-                            <img src="assets/sector-healthcare.jpg?v=20260727" alt="Healthcare, Pharmaceuticals & Life Sciences" class="sector-img" loading="lazy">
+                            <img src="assets/sector-healthcare.webp?v=20260727" alt="Healthcare, Pharmaceuticals & Life Sciences" class="sector-img" width="300" height="180" loading="lazy" decoding="async">
                             <div class="sector-img-overlay"></div>
                         </div>
                         <div class="sector-content">
@@ -518,7 +521,7 @@
                     <!-- Sector 09 -->
                     <div class="sector-card reveal-item">
                         <div class="sector-img-wrapper">
-                            <img src="assets/sector-chemicals.jpg?v=20260727" alt="Chemicals & Specialty Chemicals" class="sector-img" loading="lazy">
+                            <img src="assets/sector-chemicals.webp?v=20260727" alt="Chemicals & Specialty Chemicals" class="sector-img" width="300" height="180" loading="lazy" decoding="async">
                             <div class="sector-img-overlay"></div>
                         </div>
                         <div class="sector-content">
@@ -530,7 +533,7 @@
                     <!-- Sector 10 -->
                     <div class="sector-card reveal-item">
                         <div class="sector-img-wrapper">
-                            <img src="assets/sector-agri.jpg?v=20260727" alt="New Age Agri Business" class="sector-img" loading="lazy">
+                            <img src="assets/sector-agri.webp?v=20260727" alt="New Age Agri Business" class="sector-img" width="300" height="180" loading="lazy" decoding="async">
                             <div class="sector-img-overlay"></div>
                         </div>
                         <div class="sector-content">
@@ -542,7 +545,7 @@
                     <!-- Sector 11 -->
                     <div class="sector-card reveal-item">
                         <div class="sector-img-wrapper">
-                            <img src="assets/sector-fintech.jpg?v=20260727" alt="FinTech" class="sector-img" loading="lazy">
+                            <img src="assets/sector-fintech.webp?v=20260727" alt="FinTech" class="sector-img" width="300" height="180" loading="lazy" decoding="async">
                             <div class="sector-img-overlay"></div>
                         </div>
                         <div class="sector-content">
@@ -554,7 +557,7 @@
                     <!-- Sector 12: & Many More -->
                     <div class="sector-card sector-card-more reveal-item">
                         <div class="sector-img-wrapper">
-                            <img src="assets/sector-more.jpg" alt="& Many More High-Growth Sectors" class="sector-img" loading="lazy">
+                            <img src="assets/sector-more.webp" alt="& Many More High-Growth Sectors" class="sector-img" width="300" height="180" loading="lazy" decoding="async">
                             <div class="sector-img-overlay"></div>
                         </div>
                         <div class="sector-content">
@@ -585,7 +588,7 @@
                         <div class="card-top-accent"></div>
                         <div class="leader-header-block">
                             <div class="leader-avatar-frame">
-                                <img src="assets/deepak.jpeg" alt="Deepak N. Shah - Director" class="leader-avatar-img" loading="lazy">
+                                <img src="assets/deepak.webp" alt="Deepak N. Shah - Director" class="leader-avatar-img" width="160" height="160" loading="lazy" decoding="async">
                                 <span class="leader-exp-tag">20+ Yrs Exp.</span>
                             </div>
                             <div class="leader-identity">
@@ -626,7 +629,7 @@
                         <div class="card-top-accent"></div>
                         <div class="leader-header-block">
                             <div class="leader-avatar-frame">
-                                <img src="assets/pratik.png" alt="Pratik J. Chheda, FCA - Director" class="leader-avatar-img" loading="lazy">
+                                <img src="assets/pratik.webp" alt="Pratik J. Chheda, FCA - Director" class="leader-avatar-img" width="160" height="160" loading="lazy" decoding="async">
                                 <span class="leader-exp-tag">15+ Yrs Exp.</span>
                             </div>
                             <div class="leader-identity">
@@ -667,7 +670,7 @@
                         <div class="card-top-accent"></div>
                         <div class="leader-header-block">
                             <div class="leader-avatar-frame">
-                                <img src="assets/Vaishnavi.png" alt="Vaishnavi U. Relekar - President, ECM" class="leader-avatar-img" loading="lazy">
+                                <img src="assets/Vaishnavi.webp" alt="Vaishnavi U. Relekar - President, ECM" class="leader-avatar-img" width="160" height="160" loading="lazy" decoding="async">
                                 <span class="leader-exp-tag">3+ Yrs Exp.</span>
                             </div>
                             <div class="leader-identity">
@@ -898,7 +901,7 @@
                 <!-- Left Column: Brand & Tagline -->
                 <div class="footer-brand-col">
                     <div class="footer-logo-row">
-                        <img src="assets/logo.png" alt="Moneyfest Capital Advisors Logo" class="footer-logo-img">
+                        <img src="assets/logo.webp" alt="Moneyfest Capital Advisors Logo" class="footer-logo-img" width="54" height="54" loading="lazy" decoding="async">
                         <div class="footer-brand-meta">
                             <h3>MONEYFEST</h3>
                             <p class="legal-subtext">Moneyfest Capital Advisors Private Limited</p>
@@ -957,7 +960,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=20260723"></script>
+    <script src="js/main.js?v=20260724"></script>
 </body>
 </html>
 

@@ -134,15 +134,24 @@ function initAmbientEngine() {
 
     let width = canvas.width = window.innerWidth;
     let height = canvas.height = window.innerHeight;
+    let isTabVisible = true;
+
+    document.addEventListener('visibilitychange', () => {
+        isTabVisible = !document.hidden;
+        if (isTabVisible) {
+            requestAnimationFrame(renderLoop);
+        }
+    });
 
     window.addEventListener('resize', () => {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
     });
 
-    // Particle object density allocations
-    const nodeCount = 45;
-    const goldParticlesCount = 60;
+    // Mobile performance scaling: allocate fewer particles on mobile devices
+    const isMobile = window.innerWidth < 768;
+    const nodeCount = isMobile ? 20 : 45;
+    const goldParticlesCount = isMobile ? 25 : 60;
     const nodes = [];
     const goldDust = [];
 
@@ -176,7 +185,7 @@ function initAmbientEngine() {
     function drawFinancialGrid() {
         ctx.strokeStyle = 'rgba(6, 27, 77, 0.015)';
         ctx.lineWidth = 1;
-        const gridGap = 80;
+        const gridGap = isMobile ? 120 : 80;
 
         for (let x = 0; x < width; x += gridGap) {
             ctx.beginPath();
@@ -196,6 +205,8 @@ function initAmbientEngine() {
      * Execution update render engine loop
      */
     function renderLoop() {
+        if (!isTabVisible) return;
+
         ctx.clearRect(0, 0, width, height);
         
         drawFinancialGrid();
@@ -218,14 +229,15 @@ function initAmbientEngine() {
 
         // Draw structural link connections between proximal nodes
         ctx.lineWidth = 0.5;
+        const maxDist = isMobile ? 100 : 150;
         for (let i = 0; i < nodeCount; i++) {
             for (let j = i + 1; j < nodeCount; j++) {
                 let dx = nodes[i].x - nodes[j].x;
                 let dy = nodes[i].y - nodes[j].y;
                 let dist = Math.sqrt(dx * dx + dy * dy);
 
-                if (dist < 150) {
-                    let proximityAlpha = (1 - (dist / 150)) * 0.06;
+                if (dist < maxDist) {
+                    let proximityAlpha = (1 - (dist / maxDist)) * 0.06;
                     ctx.strokeStyle = `rgba(6, 27, 77, ${proximityAlpha})`;
                     ctx.beginPath();
                     ctx.moveTo(nodes[i].x, nodes[i].y);
