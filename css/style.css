@@ -722,18 +722,8 @@ body {
 }
 
 .about-principle-card {
-    display: grid;
-    grid-template-columns: 42px minmax(0, 1fr);
-    gap: 16px;
+    display: block;
     padding: 0 12px 0 0;
-}
-
-.principle-index {
-    color: var(--gold);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem;
-    font-weight: 700;
-    line-height: 1;
 }
 
 .about-principle-card .section-tag {
@@ -834,22 +824,15 @@ body {
 .capability-card-top {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-}
-
-.capability-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--gold);
-    line-height: 1;
-    opacity: 0.9;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
 }
 
 .capability-icon-badge {
     width: 48px;
     height: 48px;
+    min-width: 48px;
     background: rgba(6, 27, 77, 0.04);
     border: 1px solid rgba(6, 27, 77, 0.08);
     border-radius: 12px;
@@ -857,6 +840,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 1.4rem;
+    flex-shrink: 0;
     transition: var(--transition-smooth);
 }
 
@@ -868,12 +852,13 @@ body {
 
 .capability-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
+    font-size: 1.55rem;
     font-weight: 700;
     color: var(--primary);
     line-height: 1.25;
-    margin-bottom: 16px;
+    margin-bottom: 0;
     letter-spacing: -0.2px;
+    flex: 1;
 }
 
 .capability-desc {
@@ -898,6 +883,9 @@ body {
     }
     .capability-card {
         padding: 28px 24px;
+    }
+    .capability-title {
+        font-size: 1.4rem;
     }
 }
 
@@ -2301,33 +2289,24 @@ a.footer-info-row:hover {
 .simple-card-top {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 18px;
-}
-
-.simple-step-pill {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--gold-dark);
-    background: rgba(199, 154, 43, 0.12);
-    border: 1px solid rgba(199, 154, 43, 0.3);
-    padding: 3px 12px;
-    border-radius: 20px;
-    line-height: 1;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
 }
 
 .simple-icon {
     font-size: 1.35rem;
+    flex-shrink: 0;
 }
 
 .simple-card-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.45rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--primary);
     line-height: 1.25;
-    margin-bottom: 10px;
+    margin-bottom: 0;
+    flex: 1;
 }
 
 .simple-card-desc {
