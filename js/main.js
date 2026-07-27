@@ -18,7 +18,7 @@ function initInitialLoader() {
 
     let progress = 0;
     const progressInterval = setInterval(() => {
-        progress += Math.floor(Math.random() * 14) + 10;
+        progress += Math.floor(Math.random() * 8) + 6;
         if (progress >= 100) {
             progress = 100;
             if (fill) fill.style.width = '100%';
@@ -26,16 +26,11 @@ function initInitialLoader() {
             
             setTimeout(() => {
                 loader.classList.add('loaded');
-            }, 350);
+            }, 1350); // Kept for 1 additional seconds before fade-out
         } else {
             if (fill) fill.style.width = progress + '%';
         }
-    }, 70);
-
-    window.addEventListener('load', () => {
-        progress = 100;
-        if (fill) fill.style.width = '100%';
-    });
+    }, 90);
 }
 
 function initMobileHeaderScrollState() {
