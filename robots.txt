@@ -1,4 +1,23 @@
+# Moneyfest Capital Advisors - Robots.txt Directive
 User-agent: *
 Allow: /
+Disallow: /scratch/
+Disallow: /*.pdf$
 
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# Sitemap Location
 Sitemap: https://moneyfestadvisors.com/sitemap.xml
