@@ -1092,6 +1092,15 @@ body {
     margin-bottom: 0;
 }
 
+.footer-brand-meta .cin-subtext {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.8px;
+    margin-top: 2px;
+    margin-bottom: 0;
+    font-family: 'Inter', monospace, sans-serif;
+}
+
 .footer-tagline-clean {
     margin-top: 14px;
     display: flex;
