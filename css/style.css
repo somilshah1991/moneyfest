@@ -1457,6 +1457,91 @@ a.footer-info-row:hover {
     transform: translateX(3px);
 }
 
+.linkedin-svg-icon {
+    transition: transform 0.3s ease;
+}
+
+.contact-detail-block:hover .linkedin-svg-icon {
+    transform: scale(1.12);
+}
+
+.contact-linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    background: rgba(10, 102, 194, 0.08);
+    border: 1px solid rgba(10, 102, 194, 0.25);
+    border-radius: 8px;
+    color: #0A66C2;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: fit-content;
+    margin-top: 2px;
+}
+
+.contact-linkedin-btn .linkedin-btn-logo {
+    fill: #0A66C2;
+    flex-shrink: 0;
+    transition: fill 0.3s ease;
+}
+
+.contact-linkedin-btn .btn-external-icon {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background: rgba(10, 102, 194, 0.12);
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin-left: 2px;
+}
+
+.contact-linkedin-btn:hover {
+    background: #0A66C2;
+    color: #FFFFFF;
+    border-color: #0A66C2;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(10, 102, 194, 0.3);
+}
+
+.contact-linkedin-btn:hover .linkedin-btn-logo {
+    fill: #FFFFFF;
+}
+
+.contact-linkedin-btn:hover .btn-external-icon {
+    background: rgba(255, 255, 255, 0.25);
+    color: #FFFFFF;
+}
+
+/* Dedicated LinkedIn Action Button */
+.btn-linkedin {
+    background: #0A66C2;
+    color: #FFFFFF !important;
+    border: 1px solid #0A66C2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-linkedin:hover {
+    background: #004182;
+    border-color: #004182;
+    color: #FFFFFF !important;
+    box-shadow: 0 6px 20px rgba(10, 102, 194, 0.35);
+    transform: translateY(-2px);
+}
+
+.btn-linkedin-icon {
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
 .contact-card-actions {
     display: flex;
     flex-wrap: wrap;
@@ -1464,6 +1549,7 @@ a.footer-info-row:hover {
     margin-top: 36px;
     padding-top: 24px;
     border-top: 1px dashed rgba(6, 27, 77, 0.12);
+    justify-content: center;
 }
 
 .contact-act-btn {
