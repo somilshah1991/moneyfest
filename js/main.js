@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initMobileNavigation();
     initMobileHeaderScrollState();
+    initEnquiryForm();
 });
 
 function initInitialLoader() {
@@ -297,4 +298,210 @@ function initScrollAnimations() {
 
     const targetElements = document.querySelectorAll('.reveal-item, .timeline-node');
     targetElements.forEach(el => scrollObserver.observe(el));
+}
+
+/**
+ * Advisory Enquiry Form Handler & Real-Time Keypress Validation Engine
+ */
+function initEnquiryForm() {
+    const form = document.getElementById('advisory-enquiry-form');
+    const successCard = document.getElementById('enquiry-success-message');
+    const resetBtn = document.getElementById('enquiry-reset-btn');
+    const userNameSpan = document.getElementById('success-user-name');
+    if (!form) return;
+
+    const fieldIds = ['enquiry-name', 'enquiry-email', 'enquiry-mobile', 'enquiry-company', 'enquiry-industry', 'enquiry-message'];
+
+    // Register real-time live validation on input, keyup, change, and blur for each field
+    fieldIds.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        if (!field) return;
+
+        ['input', 'keyup', 'change'].forEach(eventType => {
+            field.addEventListener(eventType, () => {
+                validateEnquiryField(fieldId, true);
+            });
+        });
+
+        field.addEventListener('blur', () => {
+            const group = field.closest('.form-group');
+            if (group) group.dataset.touched = 'true';
+            validateEnquiryField(fieldId, false);
+        });
+    });
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Touch all fields to trigger validation messages on submit if empty
+        fieldIds.forEach(fieldId => {
+            const field = document.getElementById(fieldId);
+            if (field) {
+                const group = field.closest('.form-group');
+                if (group) group.dataset.touched = 'true';
+            }
+        });
+
+        let isFormValid = true;
+        fieldIds.forEach(fieldId => {
+            const isValid = validateEnquiryField(fieldId, false);
+            if (!isValid) isFormValid = false;
+        });
+
+        if (!isFormValid) {
+            const firstError = form.querySelector('.form-group.has-error input, .form-group.has-error select, .form-group.has-error textarea');
+            if (firstError) firstError.focus();
+            return;
+        }
+
+        const nameValue = document.getElementById('enquiry-name').value.trim();
+        const emailValue = document.getElementById('enquiry-email').value.trim();
+        const submitBtn = document.getElementById('enquiry-submit-btn');
+
+        // Check if Web3Forms hCaptcha token is present & solved
+        const hCaptchaInput = form.querySelector('[name="h-captcha-response"], [name="g-recaptcha-response"]');
+        const hCaptchaValue = hCaptchaInput ? hCaptchaInput.value : '';
+
+        if (form.querySelector('.h-captcha') && !hCaptchaValue) {
+            alert('Please check the CAPTCHA box ("I am human") before submitting.');
+            return;
+        }
+
+        // Display sending state
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            const btnText = submitBtn.querySelector('.btn-text');
+            if (btnText) btnText.textContent = 'Transmitting Enquiry...';
+        }
+
+        // Build form payload using FormData (Web3Forms official recommended method)
+        const formData = new FormData(form);
+        const payload = Object.fromEntries(formData);
+        
+        // Ensure custom subject and proper field mappings are set
+        const companyValue = document.getElementById('enquiry-company').value.trim();
+        payload.subject = `New Advisory Enquiry: ${companyValue} - ${nameValue}`;
+        payload.from_name = nameValue;
+
+        const endpoint = 'https://api.web3forms.com/submit';
+
+        fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(async (response) => {
+            const data = await response.json();
+            if (response.status === 200 && data.success) {
+                if (userNameSpan) userNameSpan.textContent = nameValue;
+                form.style.display = 'none';
+                if (successCard) successCard.style.display = 'block';
+            } else {
+                console.error('Web3Forms Error:', data);
+                alert(data.message || 'Submission failed. Please check form details.');
+            }
+        })
+        .catch(error => {
+            console.error('Enquiry submission network error:', error);
+            alert('A network error occurred. Please try again.');
+        })
+        .finally(() => {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                const btnText = submitBtn.querySelector('.btn-text');
+                if (btnText) btnText.textContent = 'Submit Advisory Enquiry';
+            }
+        });
+    });
+
+    if (resetBtn) {
+        resetBtn.addEventListener('click', function () {
+            form.reset();
+            form.style.display = 'block';
+            if (successCard) successCard.style.display = 'none';
+            fieldIds.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    const group = field.closest('.form-group');
+                    if (group) {
+                        group.classList.remove('has-error', 'is-valid');
+                        delete group.dataset.touched;
+                    }
+                }
+            });
+        });
+    }
+}
+
+/**
+ * Validates individual enquiry form field and updates visual DOM states
+ */
+function validateEnquiryField(fieldId, isLive = false) {
+    const field = document.getElementById(fieldId);
+    if (!field) return true;
+
+    let isValid = true;
+    let errorMsg = '';
+
+    if (fieldId === 'enquiry-name') {
+        const val = field.value.trim();
+        if (!val || val.length < 2) {
+            isValid = false;
+            errorMsg = 'Please enter your full name (at least 2 characters).';
+        }
+    } else if (fieldId === 'enquiry-email') {
+        const val = field.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!val || !emailRegex.test(val)) {
+            isValid = false;
+            errorMsg = 'Please enter a valid email address (e.g., name@company.com).';
+        }
+    } else if (fieldId === 'enquiry-mobile') {
+        const rawVal = field.value.trim();
+        const digits = rawVal.replace(/[\s\-\(\)\+]/g, '');
+        if (!rawVal || !/^\d{10,15}$/.test(digits)) {
+            isValid = false;
+            errorMsg = 'Please enter a valid 10-digit mobile number.';
+        }
+    } else if (fieldId === 'enquiry-company') {
+        const val = field.value.trim();
+        if (!val) {
+            isValid = false;
+            errorMsg = 'Please enter your company or organization name.';
+        }
+    } else if (fieldId === 'enquiry-industry') {
+        const val = field.value;
+        if (!val) {
+            isValid = false;
+            errorMsg = 'Please select your industry from the dropdown.';
+        }
+    } else if (fieldId === 'enquiry-message') {
+        const val = field.value.trim();
+        if (!val || val.length < 5) {
+            isValid = false;
+            errorMsg = 'Please share details on how we can assist you (at least 5 characters).';
+        }
+    }
+
+    const group = field.closest('.form-group');
+    if (group) {
+        if (!isValid) {
+            if (group.dataset.touched === 'true' || !isLive) {
+                group.classList.add('has-error');
+                group.classList.remove('is-valid');
+                const errorSpan = group.querySelector('.error-msg');
+                if (errorSpan) errorSpan.textContent = errorMsg;
+            }
+        } else {
+            group.classList.remove('has-error');
+            if (field.value.trim().length > 0) {
+                group.classList.add('is-valid');
+            }
+        }
+    }
+
+    return isValid;
 }

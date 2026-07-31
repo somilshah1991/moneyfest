@@ -25,6 +25,9 @@
     <meta name="rating" content="general">
     <meta name="theme-color" content="#061B4D">
 
+    <!-- Web3Forms Captcha Script -->
+    <script src="https://web3forms.com/client/script.js" async defer></script>
+
     <!-- Structured Data / JSON-LD Schemas -->
     <script type="application/ld+json">
     {
@@ -192,7 +195,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- Stylesheets Linkage -->
-    <link rel="stylesheet" href="css/style.css?v=20260727">
+    <link rel="stylesheet" href="css/style.css?v=20260728">
     <link rel="stylesheet" href="css/animation.css?v=20260726">
     <!-- High-Priority Critical Asset Preloads -->
     <link rel="preload" href="assets/logo.webp?v=20260727" as="image" type="image/webp">
@@ -244,6 +247,7 @@
                 <a href="#leadership">Leadership</a>
                 <a href="#process">Advisory Process</a>
                 <a href="#contact">Contact</a>
+                <a href="#enquiry" class="nav-enquiry-link">Enquiry</a>
             </nav>
             <div class="mobile-nav-overlay"></div>
         </div>
@@ -915,6 +919,139 @@
                 </div>
             </div>
         </section>
+
+        <!-- ENQUIRY FORM SECTION -->
+        <section class="enquiry-section" id="enquiry">
+            <div class="section-container">
+                <div class="text-center-wrapper reveal-item">
+                    <span class="section-tag">Advisory Consultation</span>
+                    <h2 class="section-heading">Schedule an Advisory Consultation</h2>
+                    <div class="heading-gold-divider"></div>
+                    <p class="section-lead-body">
+                        Partner with Moneyfest to navigate capital markets, strategic growth, and enterprise value creation.
+                    </p>
+                </div>
+
+                <div class="enquiry-card reveal-item">
+                    <div class="enquiry-card-header">
+                        <div class="contact-header-badge">
+                            <span class="badge-icon">📝</span>
+                            <span>MONEYFEST ADVISORY CONSULTATION FORM</span>
+                        </div>
+                    </div>
+
+                    <form id="advisory-enquiry-form" class="enquiry-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+                        <!-- Web3Forms API Configuration Parameters -->
+                        <input type="hidden" name="access_key" value="a407fc76-2467-4d07-943e-14fc20ec0571">
+                        <input type="hidden" name="subject" value="New Advisory Enquiry - Moneyfest Capital Advisors">
+                        <input type="hidden" name="from_name" value="Moneyfest Advisory Form">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <div class="form-grid">
+                            <!-- Name Field -->
+                            <div class="form-group">
+                                <label for="enquiry-name" class="form-label">Name <span class="required-star">*</span></label>
+                                <div class="input-wrapper">
+                                    <span class="field-icon">👤</span>
+                                    <input type="text" id="enquiry-name" name="name" class="form-control" placeholder="Enter your full name" required autocomplete="name">
+                                </div>
+                                <span class="error-msg" id="name-error">Please enter your full name.</span>
+                            </div>
+
+                            <!-- Email ID Field -->
+                            <div class="form-group">
+                                <label for="enquiry-email" class="form-label">Email ID <span class="required-star">*</span></label>
+                                <div class="input-wrapper">
+                                    <span class="field-icon">✉️</span>
+                                    <input type="email" id="enquiry-email" name="email" class="form-control" placeholder="Enter corporate email ID (e.g., name@company.com)" required autocomplete="email">
+                                </div>
+                                <span class="error-msg" id="email-error">Please enter a valid email address.</span>
+                            </div>
+
+                            <!-- Mobile No Field -->
+                            <div class="form-group">
+                                <label for="enquiry-mobile" class="form-label">Mobile No. <span class="required-star">*</span></label>
+                                <div class="input-wrapper">
+                                    <span class="field-icon">📞</span>
+                                    <input type="tel" id="enquiry-mobile" name="mobile" class="form-control" placeholder="Enter 10-digit mobile number" required pattern="^[0-9]{10}$" autocomplete="tel">
+                                </div>
+                                <span class="error-msg" id="mobile-error">Please enter a valid 10-digit mobile number.</span>
+                            </div>
+
+                            <!-- Company Name Field -->
+                            <div class="form-group">
+                                <label for="enquiry-company" class="form-label">Company Name <span class="required-star">*</span></label>
+                                <div class="input-wrapper">
+                                    <span class="field-icon">🏢</span>
+                                    <input type="text" id="enquiry-company" name="company" class="form-control" placeholder="Enter company / organization name" required autocomplete="organization">
+                                </div>
+                                <span class="error-msg" id="company-error">Please enter your company name.</span>
+                            </div>
+
+                            <!-- Industry Dropdown Field -->
+                            <div class="form-group full-width">
+                                <label for="enquiry-industry" class="form-label">Industry <span class="required-star">*</span></label>
+                                <div class="input-wrapper select-wrapper">
+                                    <span class="field-icon">📊</span>
+                                    <select id="enquiry-industry" name="industry" class="form-control form-select" required>
+                                        <option value="" disabled selected>Select your industry</option>
+                                        <option value="Artificial Intelligence & Deep Tech">Artificial Intelligence & Deep Tech</option>
+                                        <option value="Information Technology & SaaS">Information Technology & SaaS</option>
+                                        <option value="Robotics & Industrial Automation">Robotics & Industrial Automation</option>
+                                        <option value="Defence & Aerospace">Defence & Aerospace</option>
+                                        <option value="Engineering & Industrial Manufacturing">Engineering & Industrial Manufacturing</option>
+                                        <option value="Electric Mobility & EV Ecosystem">Electric Mobility & EV Ecosystem</option>
+                                        <option value="Clean Energy & Energy Transition">Clean Energy & Energy Transition</option>
+                                        <option value="Healthcare, Pharma & Life Sciences">Healthcare, Pharma & Life Sciences</option>
+                                        <option value="Chemicals & Specialty Chemicals">Chemicals & Specialty Chemicals</option>
+                                        <option value="Agri Business & Food Processing">Agri Business & Food Processing</option>
+                                        <option value="FinTech & Financial Services">FinTech & Financial Services</option>
+                                        <option value="Consumer Goods & Retail">Consumer Goods & Retail</option>
+                                        <option value="Real Estate & Infrastructure">Real Estate & Infrastructure</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <span class="select-arrow">▼</span>
+                                </div>
+                                <span class="error-msg" id="industry-error">Please select your industry from the dropdown.</span>
+                            </div>
+
+                            <!-- How can we help you? Textarea Field -->
+                            <div class="form-group full-width">
+                                <label for="enquiry-message" class="form-label">How can we help you? <span class="required-star">*</span></label>
+                                <div class="input-wrapper">
+                                    <span class="field-icon textarea-icon">💬</span>
+                                    <textarea id="enquiry-message" name="message" class="form-control form-textarea" rows="4" placeholder="Briefly describe your advisory requirements (e.g., IPO Readiness, PE Fundraising, Debt Syndication, Virtual CFO)..." required></textarea>
+                                </div>
+                                <span class="error-msg" id="message-error">Please share how Moneyfest can assist your business.</span>
+                            </div>
+                        </div>
+
+                        <!-- Web3Forms CAPTCHA Container -->
+                        <div class="form-captcha-wrapper">
+                            <div class="h-captcha" data-captcha="true"></div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-submit-row">
+                            <button type="submit" id="enquiry-submit-btn" class="btn btn-primary submit-btn">
+                                <span class="btn-text">Submit Advisory Enquiry</span>
+                                <span class="btn-icon">➔</span>
+                            </button>
+                            
+                        </div>
+                    </form>
+
+                    <!-- Success State Feedback Card -->
+                    <div id="enquiry-success-message" class="enquiry-success-card" style="display: none;">
+                        <div class="success-icon-badge">✅</div>
+                        <h3>Enquiry Sent Successfully</h3>
+                        <p>Thank you, <strong id="success-user-name"></strong>! Your enquiry details have been routed to <strong>info@moneyfestadvisors.com</strong>.</p>
+                        <p class="success-subtext">Our executive team will review your requirements and get back to you shortly.</p>
+                        <button type="button" id="enquiry-reset-btn" class="btn btn-secondary reset-btn">Submit Another Enquiry</button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">
@@ -948,6 +1085,7 @@
                         <li><a href="#leadership">Leadership Team</a></li>
                         <li><a href="#process">Advisory Process</a></li>
                         <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#enquiry">Submit Enquiry</a></li>
                     </ul>
                 </div>
 
@@ -982,7 +1120,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=20260724"></script>
+    <script src="js/main.js?v=20260726"></script>
 </body>
 </html>
 

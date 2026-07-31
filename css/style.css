@@ -2449,3 +2449,268 @@ a.footer-info-row:hover {
         font-size: 1.3rem;
     }
 }
+
+/* ==========================================================================
+   ADVISORY ENQUIRY FORM SECTION
+   ========================================================================== */
+.enquiry-section {
+    padding: 90px 0 100px;
+    background: #FFFFFF;
+    position: relative;
+    border-top: 1px solid rgba(6, 27, 77, 0.08);
+}
+
+.enquiry-card {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border: 1px solid rgba(6, 27, 77, 0.09);
+    border-radius: 20px;
+    padding: clamp(32px, 4vw, 48px);
+    box-shadow: 0 16px 40px -12px rgba(6, 27, 77, 0.07);
+    position: relative;
+    overflow: hidden;
+}
+
+.enquiry-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--gold) 50%, var(--primary) 100%);
+}
+
+.enquiry-card-header {
+    margin-bottom: 24px;
+    justify-content: center;
+    justify-self: center;
+}
+
+.enquiry-form .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.enquiry-form .form-group.full-width {
+    grid-column: span 2;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.required-star {
+    color: #D93025;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.field-icon {
+    position: absolute;
+    left: 16px;
+    font-size: 1.1rem;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.85;
+}
+
+.field-icon.textarea-icon {
+    top: 16px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 14px 16px 14px 48px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.96rem;
+    color: var(--text-dark);
+    background: #F9FAFD;
+    border: 1.5px solid rgba(6, 27, 77, 0.15);
+    border-radius: 12px;
+    outline: none;
+    transition: var(--transition-smooth);
+}
+
+.form-control::placeholder {
+    color: rgba(6, 27, 77, 0.4);
+}
+
+.form-control:focus {
+    background: #FFFFFF;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(6, 27, 77, 0.1);
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.form-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+.select-arrow {
+    position: absolute;
+    right: 16px;
+    font-size: 0.75rem;
+    color: rgba(6, 27, 77, 0.5);
+    pointer-events: none;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+.error-msg {
+    display: none;
+    font-size: 0.78rem;
+    color: #D93025;
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+.form-group.has-error .form-control {
+    border-color: #D93025;
+    background: rgba(217, 48, 37, 0.03);
+}
+
+.form-group.has-error .error-msg {
+    display: block;
+}
+
+.form-group.is-valid .form-control {
+    border-color: rgba(6, 27, 77, 0.28);
+    background: #FFFFFF;
+}
+
+.form-submit-row {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.submit-btn {
+    width: 100%;
+    max-width: 380px;
+    padding: 16px 32px;
+    font-size: 1.02rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 8px 24px rgba(6, 27, 77, 0.25);
+    cursor: pointer;
+    border: none;
+    transition: var(--transition-smooth);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(6, 27, 77, 0.35);
+}
+
+.form-privacy-note {
+    font-size: 0.8rem;
+    color: rgba(6, 27, 77, 0.6);
+    margin: 0;
+    text-align: center;
+}
+
+/* Success Card */
+.enquiry-success-card {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.success-icon-badge {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.enquiry-success-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.enquiry-success-card p {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.success-subtext {
+    font-size: 0.9rem;
+    color: rgba(6, 27, 77, 0.7);
+    margin-bottom: 24px !important;
+}
+
+.reset-btn {
+    padding: 12px 28px;
+    font-size: 0.9rem;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .enquiry-card {
+        padding: 28px 20px;
+        margin-top: 28px;
+        border-radius: 18px;
+    }
+
+    .enquiry-form .form-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .enquiry-form .form-group.full-width {
+        grid-column: span 1;
+    }
+
+    .submit-btn {
+        max-width: 100%;
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 0.96rem;
+    }
+}
+
+.form-captcha-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
