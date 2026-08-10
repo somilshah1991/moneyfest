@@ -1,0 +1,77 @@
+# Moneyfest Capital Advisors
+
+> Moneyfest Capital Advisors Private Limited is a premier boutique corporate advisory and investment banking firm in India. Specializing in SME & Mainboard IPO Readiness, Private Equity Fundraising, Mergers & Acquisitions (M&A), Debt Syndication, Corporate Restructuring, and Virtual CFO (VCFO) services for growth-stage enterprises and promoters.
+
+Moneyfest Capital Advisors provides strategic financial advisory, capital mobilization, and governance structuring to help ambitious businesses transition from private enterprises into public market leaders.
+
+- [Home Page](https://moneyfestadvisors.com/#home): Main portal and executive overview.
+- [About Moneyfest](https://moneyfestadvisors.com/#about): Company background, mission, vision, and core corporate values.
+
+## Core Advisory Capabilities
+
+- [IPO Readiness & VCFO Services](https://moneyfestadvisors.com/#services): Complete SME & Mainboard IPO advisory from IPO readiness, valuation, and listing strategy to documentation, investor engagement, and transaction execution, alongside Virtual CFO support for financial planning, governance, reporting, board readiness, and strategic decision-making.
+- [Private Equity Fundraising](https://moneyfestadvisors.com/#services): End-to-end growth equity syndication via Private Equity, Venture Capital, Family Office Investments, and Strategic Investors for scaling enterprises.
+- [Mergers, Acquisitions & Strategic Advisory](https://moneyfestadvisors.com/#services): Strategic Buy-side & Sell-side Advisory, Mergers & Acquisitions (M&A), Joint Ventures, Strategic Partnerships, Corporate Restructuring, and Transaction Advisory Services.
+- [Post-Listing Handholding & Growth Advisory](https://moneyfestadvisors.com/#services): Post-listing advisory and ongoing support for listed companies to access follow-on capital via Rights Issues, Preferential Investment, or Institutional Placements (QIPs).
+- [Debt Syndication & Corporate Finance](https://moneyfestadvisors.com/#services): Structured financing through Banks, NBFCs, Financial Institutions, and Alternative Credit Providers, alongside Financial Restructuring, Capital Structuring, Strategic Financial Planning, Working Capital Optimization, and Investor Relations.
+- [Strategic Business Advisory](https://moneyfestadvisors.com/#services): Supporting businesses with growth strategy, capital planning, governance enhancement, business transformation, and IPO readiness to build long-term enterprise value.
+
+## Industry Sector Coverage
+
+- [Sector Coverage Section](https://moneyfestadvisors.com/#sectors): Deep domain insights across traditional and emerging high-growth industries in India.
+  - **Artificial Intelligence (AI) & Deep Tech**: Valuation and growth capital for next-gen technology firms.
+  - **Information Technology & SaaS**: Scalable equity and advisory for cloud and software platforms.
+  - **Robotics & Industrial Automation**: Strategic funding for smart manufacturing and automation.
+  - **Defence & Aerospace**: Corporate finance for indigenization and aerospace growth.
+  - **Engineering & Industrial Manufacturing**: Capital structuring for industrial expansion and capital expenditure.
+  - **Electric Mobility & EV Ecosystem**: Debt and private equity for EV infrastructure, battery tech, and OEMs.
+  - **Clean Energy & Energy Transition**: Capital mobilization for renewable energy and decarbonization ventures.
+  - **Healthcare, Pharmaceuticals & Life Sciences**: Advisory for pharma manufacturing, biotech, and healthcare providers.
+  - **Chemicals & Specialty Chemicals**: Growth capital and M&A for chemical processing companies.
+  - **New Age Agri Business**: Strategic advisory for agri-tech and sustainable agricultural processing.
+  - **FinTech**: Corporate advisory for fintech, payment processors, and financial tech platforms.
+
+## Structured Advisory Process Framework
+
+- [Advisory Process Framework](https://moneyfestadvisors.com/#process): Milestone-driven execution model.
+  1. **Discovery & Assessment**: Evaluating business model strength, financial readiness, and strategic objectives.
+  2. **Strategic Planning**: Developing custom capital structure, valuation framework, and transaction roadmaps.
+  3. **Due Diligence & Documentation**: Directing financial restatements, data room setup, and drafting offer documents.
+  4. **Transaction Structuring**: Designing optimal debt/equity terms to preserve promoter value.
+  5. **Investor Engagement**: Direct connection with institutional investors, family offices, and merchant bankers.
+  6. **Transaction Execution**: Managing regulatory compliance, exchange filings, and deal closure.
+  7. **Post-Transaction Advisory**: Institutionalizing board governance, investor relations, and ongoing compliance.
+  8. **Long-Term Value Creation**: Strategic partnership to scale enterprise valuation for long-term growth.
+
+## Executive Leadership
+
+- [Leadership & Advisory Board](https://moneyfestadvisors.com/#leadership): Board of directors and ECM team.
+  - **Deepak N. Shah** (Director): 20+ Years in Capital Markets, Investment Banking & Stock Exchanges.
+    - Direct Line: [tel:+919617119655](tel:+919617119655)
+    - Email: [mailto:deepak@moneyfestadvisors.com](mailto:deepak@moneyfestadvisors.com)
+  - **Pratik J. Chheda, FCA** (Director): Fellow Chartered Accountant, 15+ Years in IPO Advisory & Corporate Finance.
+    - Direct Line: [tel:+919867060221](tel:+919867060221)
+    - Email: [mailto:pratik@moneyfestadvisors.com](mailto:pratik@moneyfestadvisors.com)
+  - **Vaishnavi U. Relekar** (President, ECM): Equity Capital Markets, Investment Research & Investor Engagement.
+    - Direct Line: [tel:+917875356352](tel:+917875356352)
+    - Email: [mailto:vaishnavi@moneyfestadvisors.com](mailto:vaishnavi@moneyfestadvisors.com)
+
+## Contact & Corporate Identification
+
+- [Contact Section](https://moneyfestadvisors.com/#contact): Corporate office details and executive inquiry channels.
+- [Enquiry Form](https://moneyfestadvisors.com/#enquiry): Client consultation inquiry section.
+- **Company Legal Entity**: Moneyfest Capital Advisors Private Limited
+- **Corporate Identification Number (CIN)**: U66190MH2026PTC473670
+- **Corporate Office**: 4th Floor, A-wing, Times Square Tower, Marol, Andheri-Kurla Road, Mumbai - 400059, Maharashtra, India.
+- **General Inquiries Email**: [mailto:info@moneyfestadvisors.com](mailto:info@moneyfestadvisors.com)
+- **Executive Phone**: [tel:+917875356352](tel:+917875356352)
+- **LinkedIn Profile**: [https://www.linkedin.com/company/moneyfestcapitaladvisors/](https://www.linkedin.com/company/moneyfestcapitaladvisors/)
+- **WhatsApp Strategy Session**: [https://wa.me/917875356352](https://wa.me/917875356352)
+
+## Key Resources & Document Links
+
+- [Moneyfest Capital Corporate Website](https://moneyfestadvisors.com/)
+- [Moneyfest Corporate Profile (PDF)](https://moneyfestadvisors.com/assets/brochure/Moneyfest_Corporate_Profile.pdf)
+- [Full LLM Context Documentation (llms-full.txt)](https://moneyfestadvisors.com/llms-full.txt)
+- [XML Sitemap](https://moneyfestadvisors.com/sitemap.xml)
+- [Robots.txt Directive](https://moneyfestadvisors.com/robots.txt)

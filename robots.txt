@@ -1,23 +1,11 @@
 # Moneyfest Capital Advisors - Robots.txt Directive
+# Allow all web crawlers, search engines, AI bots, and LLM agents complete access to all pages & resources.
+
 User-agent: *
 Allow: /
-Disallow: /scratch/
-Disallow: /*.pdf$
 
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Slurp
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-# Sitemap Location
+# Sitemap & LLM Directives
 Sitemap: https://moneyfestadvisors.com/sitemap.xml
+# LLMs Text Standard (https://llmstxt.org/)
+# LLM-Summary: https://moneyfestadvisors.com/llms.txt
+# LLM-Full: https://moneyfestadvisors.com/llms-full.txt
