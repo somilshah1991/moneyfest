@@ -3,19 +3,20 @@ name: Minify and Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main # Change this to 'master' if your default branch is named master
+      - main
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  # JOB 1: Handles pulling code and minifying it
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source Code
@@ -32,18 +33,12 @@ jobs:
       - name: Create Build Directory & Copy Project
         run: |
           mkdir dist
-          # Copy everything except the dist folder itself and hidden .git folders
           rsync -av --exclude='dist' --exclude='.git' --exclude='.github' ./ dist/
 
       - name: Minify HTML, CSS, and JS
         run: |
-          # Minify HTML files in place inside dist
           find dist -maxdepth 2 -name "*.html" -exec html-minifier-terser --collapse-whitespace --remove-comments --output {} {} \;
-          
-          # Minify CSS files inside the css folder
           find dist/css -name "*.css" -exec cleancss -o {} {} \;
-          
-          # Minify JS files inside the js folder
           find dist/js -name "*.js" -exec terser {} -o {} --mangle --compress \;
 
       - name: Upload Build Artifacts
@@ -51,6 +46,14 @@ jobs:
         with:
           path: './dist'
 
+  # JOB 2: Safely hands off the built files to GitHub Pages alone
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
