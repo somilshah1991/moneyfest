@@ -37,19 +37,11 @@ jobs:
 
       - name: Minify HTML, CSS, and JS
         run: |
-           # Minify index.html directly in the root of the build folder
           html-minifier-terser --collapse-whitespace --remove-comments --output dist/index.html dist/index.html
-          
-          # Minify any other HTML files safely if they exist
           find dist -type f -name "*.html" -exec html-minifier-terser --collapse-whitespace --remove-comments --output {} {} \;
-          
-          # Clean and minify CSS files inside the css folder
           find dist/css -type f -name "*.css" -exec cleancss -o {} {} \;
-          
-          # Mangle and minify JS files inside the js folder
           find dist/js -type f -name "*.js" -exec terser {} -o {} --mangle --compress \;
           
-
       - name: Upload Build Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
