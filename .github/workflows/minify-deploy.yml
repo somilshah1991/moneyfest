@@ -1,0 +1,56 @@
+name: Minify and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Change this to 'master' if your default branch is named master
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Minifiers
+        run: npm install -g html-minifier-terser clean-css-cli terser
+
+      - name: Create Build Directory & Copy Project
+        run: |
+          mkdir dist
+          # Copy everything except the dist folder itself and hidden .git folders
+          rsync -av --exclude='dist' --exclude='.git' --exclude='.github' ./ dist/
+
+      - name: Minify HTML, CSS, and JS
+        run: |
+          # Minify HTML files in place inside dist
+          find dist -maxdepth 2 -name "*.html" -exec html-minifier-terser --collapse-whitespace --remove-comments --output {} {} \;
+          
+          # Minify CSS files inside the css folder
+          find dist/css -name "*.css" -exec cleancss -o {} {} \;
+          
+          # Minify JS files inside the js folder
+          find dist/js -name "*.js" -exec terser {} -o {} --mangle --compress \;
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
