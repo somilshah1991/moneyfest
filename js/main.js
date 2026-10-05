@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initMobileNavigation();
     initMobileHeaderScrollState();
+    initFaqAccordion();
     initEnquiryForm();
 });
 
@@ -504,4 +505,164 @@ function validateEnquiryField(fieldId, isLive = false) {
     }
 
     return isValid;
+}
+
+/**
+ * FAQ Accordion, Category Filtering, Live Search & Toggle Controls
+ */
+function initFaqAccordion() {
+    const faqSection = document.getElementById('faq');
+    if (!faqSection) return;
+
+    const faqItems = Array.from(faqSection.querySelectorAll('.faq-item'));
+    const searchInput = document.getElementById('faq-search-input');
+    const searchClearBtn = document.getElementById('faq-search-clear');
+    const tabs = Array.from(faqSection.querySelectorAll('.faq-tab'));
+    const expandAllBtn = document.getElementById('faq-expand-all');
+    const noResults = document.getElementById('faq-no-results');
+    const resetSearchBtn = document.getElementById('faq-reset-search');
+
+    let currentCategory = 'all';
+    let currentQuery = '';
+
+    // 1. Accordion Toggle
+    faqItems.forEach(item => {
+        const btn = item.querySelector('.faq-question-btn');
+        if (!btn) return;
+
+        btn.addEventListener('click', () => {
+            const isOpen = item.classList.contains('is-open');
+
+            // If user clicked an unopened item, close sibling items for clean readability
+            if (!isOpen) {
+                faqItems.forEach(other => {
+                    if (other !== item && other.classList.contains('is-open')) {
+                        other.classList.remove('is-open');
+                        const otherBtn = other.querySelector('.faq-question-btn');
+                        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+
+            item.classList.toggle('is-open');
+            btn.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+            updateExpandAllBtnState();
+        });
+    });
+
+    // 2. Filter & Live Search Execution
+    function filterFaqs() {
+        let visibleCount = 0;
+        const query = currentQuery.toLowerCase().trim();
+
+        faqItems.forEach(item => {
+            const itemCat = item.dataset.category || '';
+            const matchesCat = (currentCategory === 'all' || itemCat === currentCategory);
+
+            let matchesQuery = true;
+            if (query.length > 0) {
+                const questionText = (item.querySelector('.faq-question-text')?.textContent || '').toLowerCase();
+                const answerText = (item.querySelector('.faq-answer-inner')?.textContent || '').toLowerCase();
+                matchesQuery = questionText.includes(query) || answerText.includes(query);
+            }
+
+            if (matchesCat && matchesQuery) {
+                item.classList.remove('is-hidden');
+                visibleCount++;
+            } else {
+                item.classList.add('is-hidden');
+                item.classList.remove('is-open');
+                const btn = item.querySelector('.faq-question-btn');
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        if (noResults) {
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        if (searchClearBtn) {
+            searchClearBtn.style.display = query.length > 0 ? 'flex' : 'none';
+        }
+
+        updateExpandAllBtnState();
+    }
+
+    // 3. Category Tab Selection
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+            currentCategory = tab.dataset.category || 'all';
+            filterFaqs();
+        });
+    });
+
+    // 4. Live Search Input & Clear
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            currentQuery = e.target.value;
+            filterFaqs();
+        });
+    }
+
+    if (searchClearBtn) {
+        searchClearBtn.addEventListener('click', () => {
+            if (searchInput) searchInput.value = '';
+            currentQuery = '';
+            filterFaqs();
+            if (searchInput) searchInput.focus();
+        });
+    }
+
+    if (resetSearchBtn) {
+        resetSearchBtn.addEventListener('click', () => {
+            if (searchInput) searchInput.value = '';
+            currentQuery = '';
+            currentCategory = 'all';
+            tabs.forEach(t => {
+                const isAll = (t.dataset.category === 'all');
+                t.classList.toggle('active', isAll);
+                t.setAttribute('aria-selected', isAll ? 'true' : 'false');
+            });
+            filterFaqs();
+        });
+    }
+
+    // 5. Expand All / Collapse All Toggle Controller
+    function updateExpandAllBtnState() {
+        if (!expandAllBtn) return;
+        const visibleItems = faqItems.filter(item => !item.classList.contains('is-hidden'));
+        if (visibleItems.length === 0) return;
+
+        const allOpen = visibleItems.every(item => item.classList.contains('is-open'));
+        const textSpan = expandAllBtn.querySelector('.action-text');
+        if (textSpan) {
+            textSpan.textContent = allOpen ? 'Collapse All' : 'Expand All';
+        }
+    }
+
+    if (expandAllBtn) {
+        expandAllBtn.addEventListener('click', () => {
+            const visibleItems = faqItems.filter(item => !item.classList.contains('is-hidden'));
+            const allOpen = visibleItems.every(item => item.classList.contains('is-open'));
+
+            visibleItems.forEach(item => {
+                const btn = item.querySelector('.faq-question-btn');
+                if (allOpen) {
+                    item.classList.remove('is-open');
+                    if (btn) btn.setAttribute('aria-expanded', 'false');
+                } else {
+                    item.classList.add('is-open');
+                    if (btn) btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+
+            updateExpandAllBtnState();
+        });
+    }
 }
